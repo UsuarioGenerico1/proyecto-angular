@@ -1,1 +1,30 @@
-<p>crud-foro works!</p>
+
+<br>
+<button (click)="openModal()">Abrir Modal</button>
+
+
+
+<!--se puede cambiar los datos que estan entre comillas por los que quieran-->
+<!--este es un ejemplo-->
+<app-vtn-modal
+  [isOpen]="isModalOpen"      
+  [title]="'¿Estás seguro?'"   
+  [description]="'Esta acción no se puede deshacer.'" 
+  [cancelar]="'No'"
+  [aceptar]="'Sí'"
+  (onCancelar)="cerrarModal()"
+  (onAceptar)="confirmarAccion()"
+>
+aqui tambien se puede escribir cosas
+</app-vtn-modal>
+
+
+
+<div class="publicacion">
+    <p class="titulo">Titulo</p>
+    <p class="contenido">Descripcion</p>
+    <p class="fecha-publicaion">Fecha</p>
+</div>
+
+
+

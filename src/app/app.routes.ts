@@ -3,6 +3,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { CrudForoComponent } from './components/crud-foro/crud-foro.component';
 import { CrudReportesProblemasComponent } from './components/crud-reportes-problemas/crud-reportes-problemas.component';
+import { VtnModalComponent } from './shared/vtn-modal/vtn-modal.component';
 
 export const routes: Routes = [
     {path:'login',component:LoginComponent},
