@@ -10,3 +10,4 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'proyecto-primer-parcial';
 }
+
