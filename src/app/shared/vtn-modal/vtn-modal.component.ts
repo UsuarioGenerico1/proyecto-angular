@@ -1,26 +1,29 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
-import {
-  MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogRef,
-  MatDialogTitle,
-} from '@angular/material/dialog';
-import { CrudForoComponent } from '../../components/crud-foro/crud-foro.component';
 @Component({
   selector: 'app-vtn-modal',
-  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
+  imports: [MatButtonModule],
   templateUrl: './vtn-modal.component.html',
   styleUrl: './vtn-modal.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VtnModalComponent {
-  titulo:string ="";
-  constructor(){
+  @Input() isOpen = false;
+  @Input() title = 'Modal';
+  @Input() description?: string;
+  @Input() aceptar: string = 'Aceptar';
+  @Input() cancelar: string = 'Cancelar';
+  @Output() onAceptar = new EventEmitter<void>();
+  @Output() onCancelar = new EventEmitter<void>();
+
+  cancelarClick() {
+    this.onCancelar.emit();
+  }
+
+  aceptarClick() {
+    this.onAceptar.emit();
 
   }
-  readonly dialogRef = inject(MatDialogRef<VtnModalComponent>);
+
 }
 

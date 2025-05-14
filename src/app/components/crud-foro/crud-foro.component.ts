@@ -4,18 +4,24 @@ import {MatDialog} from '@angular/material/dialog';
 import { VtnModalComponent } from '../../shared/vtn-modal/vtn-modal.component';
 @Component({
   selector: 'app-crud-foro',
-  imports: [MatButtonModule],
+  imports: [MatButtonModule,VtnModalComponent],
   templateUrl: './crud-foro.component.html',
   styleUrl: './crud-foro.component.css'
 })
 export class CrudForoComponent {
-readonly dialog = inject(MatDialog);
+isModalOpen = false;
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(VtnModalComponent, {
-      width: '250px',
-      enterAnimationDuration,
-      exitAnimationDuration,
-    });
+  openModal() {
+    this.isModalOpen = true;
   }
+
+  cerrarModal() {
+    //aqui se puede agregar codigo necesario para cuando se da clik en cancelar
+    this.isModalOpen = false;
+  }
+
+confirmarAccion() {
+  //aqui se puede agregar codigo necesario cuando se acepta
+  this.isModalOpen = false;
+}
 }
