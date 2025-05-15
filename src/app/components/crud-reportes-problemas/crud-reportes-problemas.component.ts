@@ -12,13 +12,13 @@ export class CrudReportesProblemasComponent implements OnInit, AfterViewInit {
 
 
   onSave() {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
   }
 
   ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // throw new Error('supuesto error arreglado');
   }
 }
