@@ -52,7 +52,7 @@ export class LoginComponent {
   login() {
     const { usuario, contraseña } = this.loginForm.value;
     const user = this.usuarios.find(
-      u => u.usuario === usuario && u.contraseña === contraseña
+      u => u.usuario === usuario && u.contrasenia === contraseña
     );
     if (user) {
       this.errorMessage = '';

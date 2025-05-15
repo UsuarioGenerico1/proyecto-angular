@@ -7,5 +7,5 @@ export interface Usuario {
   tipo_usuario: string;
   genero: string;
   direccion: string;
-  contraseña: string;
+  contrasenia: string;
 }

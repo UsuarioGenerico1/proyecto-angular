@@ -8,7 +8,7 @@
     "tipo_usuario": "ciudadano",
     "genero": "masculino",
     "direccion": "Av. Principal 123",
-    "contraseña": "omar123"
+    "contrasenia": "omar123"
   },
   {
     "id": 2,
@@ -19,7 +19,7 @@
     "tipo_usuario": "funcionario",
     "genero": "femenino",
     "direccion": "Calle Secundaria 456",
-    "contraseña": "anaG2023"
+    "contrasenia": "anaG2023"
   },
   {
     "id": 3,
@@ -30,7 +30,7 @@
     "tipo_usuario": "ciudadano",
     "genero": "masculino",
     "direccion": "Av. Central 789",
-    "contraseña": "carMen1"
+    "contrasenia": "carMen1"
   },
   {
     "id": 4,
@@ -41,7 +41,7 @@
     "tipo_usuario": "funcionario",
     "genero": "femenino",
     "direccion": "Calle 10 #20-30",
-    "contraseña": "mlopez12"
+    "contrasenia": "mlopez12"
   },
   {
     "id": 5,
@@ -52,7 +52,7 @@
     "tipo_usuario": "ciudadano",
     "genero": "masculino",
     "direccion": "Av. Norte 567",
-    "contraseña": "jperez2023"
+    "contrasenia": "jperez2023"
   },
   {
     "id": 6,
@@ -63,7 +63,7 @@
     "tipo_usuario": "ciudadano",
     "genero": "femenino",
     "direccion": "Calle 5 #15-25",
-    "contraseña": "lufer2023"
+    "contrasenia": "lufer2023"
   },
   {
     "id": 7,
@@ -74,7 +74,7 @@
     "tipo_usuario": "funcionario",
     "genero": "masculino",
     "direccion": "Av. Sur 321",
-    "contraseña": "pgonzalez"
+    "contrasenia": "pgonzalez"
   },
   {
     "id": 8,
@@ -85,7 +85,7 @@
     "tipo_usuario": "ciudadano",
     "genero": "femenino",
     "direccion": "Calle 8 #12-34",
-    "contraseña": "srodriguez"
+    "contrasenia": "srodriguez"
   },
   {
     "id": 9,
@@ -96,7 +96,7 @@
     "tipo_usuario": "funcionario",
     "genero": "masculino",
     "direccion": "Av. Este 654",
-    "contraseña": "dm2023"
+    "contrasenia": "dm2023"
   },
   {
     "id": 10,
@@ -107,6 +107,6 @@
     "tipo_usuario": "ciudadano",
     "genero": "femenino",
     "direccion": "Calle 3 #7-19",
-    "contraseña": "vvargas12"
+    "contrasenia": "vvargas12"
   }
 ]

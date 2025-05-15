@@ -1,11 +1,43 @@
 <div class="usuario-page">
     
     <div class="usuario-container"> 
-        <h1>Datos Personales</h1>
+        <h1>Datos Personales
+
+        </h1>
     </div>
 
     <div class="admin-container">
         <h1>Crud de Usuario</h1>
+<table border="1" style="width:100%; text-align:center;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Cédula</th>
+            <th>Usuario</th>
+            <th>Tipo Usuario</th>
+            <th>Género</th>
+            <th>Dirección</th>
+            <th>Contraseña</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (usuario of usuarios; track usuario.id) {
+            <tr>
+                <td>{{ usuario.id }}</td>
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.apellido }}</td>
+                <td>{{ usuario.cedula }}</td>
+                <td>{{ usuario.usuario }}</td>
+                <td>{{ usuario.tipo_usuario }}</td>
+                <td>{{ usuario.genero }}</td>
+                <td>{{ usuario.direccion }}</td>
+                <td>{{ usuario.contrasenia }}</td>
+            </tr>
+        }
+    </tbody>
+</table>
     </div>
 
 
