@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule} from '@angular/common/http';
 import { Usuario } from '../../models/Usuario';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-crud-usuario',
@@ -11,14 +12,18 @@ import { CommonModule } from '@angular/common';
 })
 export class CrudUsuarioComponent {
   usuarios: Usuario[] = [];
+  private url = 'http://localhost:3000/usuario';
 
-  constructor(private http: HttpClient) {
+  constructor(private httpclient: HttpClient) {
     this.cargarUsuarios();
   }
-  cargarUsuarios() {
-    this.http.get<Usuario[]>('/usuario.json').subscribe((data: Usuario[]) => {
+     cargarUsuarios() {
+    this.httpclient.get< Usuario[]>(this.url).subscribe((data) => {
       this.usuarios = data;
     });
+   }
+  
   }
 
-}
+ 
+

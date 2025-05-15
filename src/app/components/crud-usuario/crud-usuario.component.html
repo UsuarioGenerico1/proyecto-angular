@@ -19,25 +19,27 @@
             <th>Tipo Usuario</th>
             <th>Género</th>
             <th>Dirección</th>
+
             <th>Contraseña</th>
         </tr>
     </thead>
-    <tbody>
-        @for (usuario of usuarios; track usuario.id) {
-            <tr>
-                <td>{{ usuario.id }}</td>
-                <td>{{ usuario.nombre }}</td>
-                <td>{{ usuario.apellido }}</td>
-                <td>{{ usuario.cedula }}</td>
-                <td>{{ usuario.usuario }}</td>
-                <td>{{ usuario.tipo_usuario }}</td>
-                <td>{{ usuario.genero }}</td>
-                <td>{{ usuario.direccion }}</td>
-                <td>{{ usuario.contrasenia }}</td>
-            </tr>
-        }
-    </tbody>
+<tbody>
+    @for (usuario of usuarios; track usuario.id) {
+        <tr>
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.nombre }}</td>
+            <td>{{ usuario.apellido }}</td>
+            <td>{{ usuario.cedula }}</td>
+            <td>{{ usuario.usuario }}</td>
+            <td>{{ usuario.tipo_usuario }}</td>
+            <td>{{ usuario.genero }}</td>
+            <td>{{ usuario.direccion }}</td>
+            <td>{{ usuario.contrasenia }}</td>
+        </tr>
+    }
+</tbody>
 </table>
+
     </div>
 
 
