@@ -3,21 +3,26 @@
     <h2>{{ isRegistering ? 'Crear Cuenta' : 'Iniciar Sesión' }}</h2>
     
     @if (!isRegistering) {
-      <form (ngSubmit)="login()">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
         <mat-form-field appearance="outline" floatLabel="always">
           <mat-label>Usuario</mat-label>
-          <input matInput class="compact-input">
+          <input matInput class="compact-input" formControlName="usuario">
         </mat-form-field>
 
         <mat-form-field appearance="outline" floatLabel="always">
           <mat-label>Contraseña</mat-label>
-          <input matInput type="password" class="compact-input">
+          <input matInput type="password" class="compact-input" formControlName="contraseña">
         </mat-form-field>
+
+        <div *ngIf="errorMessage" style="color:red; margin-bottom:10px;">
+          {{ errorMessage }}
+        </div>
 
         <button mat-flat-button color="primary" class="action-btn" type="submit">INICIAR SESIÓN</button>
         <button mat-button class="toggle-btn" type="button" (click)="toggleRegister()">CREAR CUENTA</button>
       </form>
     }
+
 
     @if (isRegistering) {
       <form (ngSubmit)="register()">
