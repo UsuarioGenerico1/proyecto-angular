@@ -1,0 +1,70 @@
+{
+  "reportes": [
+    {
+      "id": 111,
+      "titulo": "Alumbrado público dañado",
+      "descripcion": "El poste de luz frente a la escuela no enciende desde hace 3 días.",
+      "categoria": "Alumbrado",
+      "direccion": "Av. Siempre Viva y Calle 10",
+      "fecha": "2025-08-30",
+      "estado": "Pendiente",
+      "imagen": "https://example.com/img/alumbrado1.jpg",
+      "usuarioId": 101
+    },
+    {
+      "id": 2,
+      "titulo": "Bache peligroso",
+      "descripcion": "Hay un bache grande en la esquina del parque. Varios autos ya han tenido daños.",
+      "categoria": "Calles",
+      "direccion": "Calle Bolívar y Av. Central",
+      "fecha": "2025-08-29",
+      "estado": "En revisión",
+      "imagen": "https://example.com/img/bache1.jpg",
+      "usuarioId": 102
+    },
+    {
+      "id": 3,
+      "titulo": "Basura acumulada",
+      "descripcion": "Desde hace una semana no pasa el recolector y hay mucha basura en la esquina.",
+      "categoria": "Basura",
+      "direccion": "Pasaje 3 y Callejón Los Cedros",
+      "fecha": "2025-08-28",
+      "estado": "Resuelto",
+      "imagen": "https://example.com/img/basura1.jpg",
+      "usuarioId": 103
+    },
+    {
+      "id": 4,
+      "titulo": "Semáforo dañado",
+      "descripcion": "El semáforo de la avenida principal está apagado desde ayer.",
+      "categoria": "Tráfico",
+      "direccion": "Av. Principal y Calle 5",
+      "fecha": "2025-08-30",
+      "estado": "Pendiente",
+      "imagen": "https://example.com/img/semaforo.jpg",
+      "usuarioId": 104
+    },
+    {
+      "id": 5,
+      "titulo": "Grafitis ofensivos",
+      "descripcion": "Aparecieron grafitis ofensivos en la fachada de la casa comunal.",
+      "categoria": "Vandalismo",
+      "direccion": "Callejón Sin Nombre 12",
+      "fecha": "2025-08-27",
+      "estado": "En revisión",
+      "imagen": "https://example.com/img/grafiti.jpg",
+      "usuarioId": 105
+    },
+    {
+      "id": 6,
+      "titulo": "Árbol caído bloqueando calle",
+      "descripcion": "Un árbol cayó anoche y está bloqueando el paso de vehículos.",
+      "categoria": "Obstáculo",
+      "direccion": "Calle Manzanares y Río Verde",
+      "fecha": "2025-08-26",
+      "estado": "Resuelto",
+      "imagen": "https://example.com/img/arbol.jpg",
+      "usuarioId": 106
+    }
+  ]
+}

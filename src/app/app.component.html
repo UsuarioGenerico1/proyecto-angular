@@ -1,22 +1,27 @@
+<!-- style="color: white; text-decoration: none" -->
+<!-- class="text-3xl font-bold flex justify-center items-center" -->
 <header>
-    <h1><a routerLink="/home" style="color: white; text-decoration: none;">Página de Reclamos </a></h1>
-   <a routerLink="/login" style="color: white; text-decoration: none;">Login</a>
-  </header>
+  <h1>
+    <!-- <img src="assets/img/logo.png" alt="Logo" class="w-20 h-20 mr-2"> -->
+    <a routerLink="/home" style="color: white; text-decoration: none"
+      >Página de Reclamos
+    </a>
+  </h1>
+  <a routerLink="/login" style="color: white; text-decoration: none">Login</a>
+</header>
 
-  <nav>
-    <ul>
-      <li><a routerLink="/foro">Foro</a></li>
-      <li><a routerLink="/reportes">Reportes</a></li>
-      <li><a href="#">opción3</a></li>
-      <li><a href="#">opción4</a></li>
-      <li><a href="#">opción5</a></li>
-      <li><a href="#">opción6</a></li>
-    </ul>
-  </nav>
+<nav>
+  <ul>
+    <li><a routerLink="/home">Home</a></li>
+    <li><a routerLink="/foro">Foro</a></li>
+    <li><a routerLink="/reportes">Reportes</a></li>
+    <li><a href="#">opción3</a></li>
+    <li><a href="#">opción4</a></li>
+    <li><a href="#">opción5</a></li>
+    <li><a href="#">opción6</a></li>
+  </ul>
+</nav>
 
+<footer>Proyecto Primer Parcial, 2025</footer>
 
-  <footer>
-      Proyecto Primer Parcial, 2025
-  </footer>
-
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
