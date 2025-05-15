@@ -1,12 +1,77 @@
-
- <div class="login-page">
+<div class="login-page">
   <div class="login-container">
-    <h2>Iniciar Sesión</h2>
-    <form action="#" method="post">
-      <input type="text" placeholder="Usuario" name="usuario" required>
-      <input type="password" placeholder="Contraseña" name="contraseña" required>
-      <button type="submit">Iniciar Sesión</button>
-      <button type="button">Crear Cuenta</button>
-    </form>
+    <h2>{{ isRegistering ? 'Crear Cuenta' : 'Iniciar Sesión' }}</h2>
+    
+    @if (!isRegistering) {
+      <form (ngSubmit)="login()">
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Usuario</mat-label>
+          <input matInput class="compact-input">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" class="compact-input">
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" class="action-btn" type="submit">INICIAR SESIÓN</button>
+        <button mat-button class="toggle-btn" type="button" (click)="toggleRegister()">CREAR CUENTA</button>
+      </form>
+    }
+
+    @if (isRegistering) {
+      <form (ngSubmit)="register()">
+        
+        
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Nombre</mat-label>
+          <input matInput class="compact-input">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Apellido</mat-label>
+          <input matInput class="compact-input">
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Genero</mat-label>
+          <mat-select placeholder="Seleccione...">
+             <mat-option value="Masculino">Masculino</mat-option>
+            <mat-option value="Femenino">Femenino</mat-option>
+          </mat-select>
+          <input matInput class="compact-input">
+        
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Tipo de usuario</mat-label>
+          <mat-select placeholder="Seleccione...">
+             <mat-option value="Ciudadano">Ciudadano</mat-option>
+            <mat-option value="Funcionario">Funcionario</mat-option>
+          </mat-select>
+          <input matInput class="compact-input">
+        
+        </mat-form-field>
+            
+          
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Correo electrónico</mat-label>
+          <input matInput type="email" class="compact-input">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Direccion</mat-label>
+          <input matInput class="compact-input">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" class="compact-input">
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" class="action-btn" type="submit">REGISTRARSE</button>
+        <button mat-button class="toggle-btn" type="button" (click)="toggleRegister()">VOLVER A LOGIN</button>
+      </form>
+    }
   </div>
 </div>
