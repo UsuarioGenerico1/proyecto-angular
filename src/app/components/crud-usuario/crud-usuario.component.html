@@ -96,9 +96,9 @@
           <!-- Contenedor de botones de acción -->
           <div class="botones">
             <!-- Botón para guardar (envía el formulario) -->
-            <!-- <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">
+            <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">
               Guardar
-            </button> -->
+            </button>
             <!-- Botón para cancelar/limpiar el formulario -->
             <!-- <button mat-raised-button color="primary" type="reset" (click)="clearForm()">
               Cancelar
@@ -146,6 +146,7 @@
             <th mat-header-cell *matHeaderCellDef>Tipo de Usuario</th>
             <td mat-cell *matCellDef="let element">{{ element.tipo_usuario }}</td>
           </ng-container>
+          
           <!-- Columna para el genero -->
           <ng-container matColumnDef="genero">
             <th mat-header-cell *matHeaderCellDef>Genero</th>
@@ -187,7 +188,6 @@
           <!-- Filas de datos -->
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
-
         <!-- Componente paginador -->
         <mat-paginator
           [pageSizeOptions]="[5, 10, 20]"  
@@ -196,13 +196,7 @@
         >
         </mat-paginator>
 
-
-        
-
-
-
     </div>
-
-
+    
 </div>
 <br><br><br>

@@ -63,14 +63,18 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
   // Fuente de datos para la tabla
   dataSource = new MatTableDataSource<Usuario>();
 
-  // Método del ciclo de vida: después de inicializar la vista
-  ngAfterViewInit() {
-    // Asigna el paginador a la tabla
-    this.dataSource.paginator = this.paginator;
-  }
+  
 
   // Referencia al paginador de la tabla
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+// Método del ciclo de vida: después de inicializar la vista
+  ngAfterViewInit() {
+    // Asigna el paginador a la tabla
+    this.dataSource.paginator = this.paginator;
+    //  this.paginator.pageSize = 5;
+  }
+
+  
   
 
 
@@ -101,6 +105,8 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
   cargarUsuarios():void {
     this.usuarioService.getUsuarios().subscribe((data:Usuario[]) => {
       this.dataSource.data = data;
+      
+      
     });
   }
   // Búsqueda de Usuario
@@ -111,6 +117,7 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
   //       .getMoviesSearch(cajaTexto.value)
   //       .subscribe((data: Pelicula[]) => {
   //         this.dataSource.data = data;
+            // this.dataSource.paginator = this.paginator; 
   //       });
   //   } else {
       
@@ -138,21 +145,22 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
   // }
 
   // Prepara el formulario para editar una película
-  // editar(peli: Pelicula) {
-  //   this.isEditMode = true; // Activa modo edición
-  //   this.currentId = peli.id; // Guarda el ID
+  editar(usu: Usuario) {
+    this.isEditMode = true; // Activa modo edición
+    this.currentId = usu.id; // Guarda el ID
 
     // Llena el formulario con los datos de la película
-    // this.form.setValue({
-    //   title: peli.title,
-    //   genre: peli.genre,
-    //   releaseDate: peli.releaseDate,
-    //   budget: peli.budget,
-    //   poster: peli.poster ? peli.poster : '', // Manejo de valor nulo
-    //   rating: peli.rating,
-    //   isAvailable: peli.isAvailable,
-  //   // });
-  // }
+    this.form.setValue({
+      nombre: usu.nombre,
+      apellido: usu.apellido,
+      cedula: usu.cedula,
+      usuario: usu.usuario,
+      tipo_usuario:usu.tipo_usuario ,
+      genero: usu.genero,
+      direccion: usu.direccion,
+      contrasenia: usu.contrasenia
+     });
+  }
 
   // Limpia el formulario y desactiva el modo edición
   // clearForm() {
@@ -169,30 +177,30 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
   //   this.currentId = 0;
   // }
   // Maneja el envío del formulario (crear/actualizar)
-  // onSubmit() {
-  //   if (this.form.invalid) { // Verifica validaciones
-  //     alert('Por favor, complete todos los campos obligatorios.');
-  //     return;
-  //   }
+  onSubmit() {
+    if (this.form.invalid) { // Verifica validaciones
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
 
-  //   let peliculaAGuardar: Pelicula = this.form.value;
+    let UsuarioGuardar: Usuario = this.form.value;
 
-  //   if (this.isEditMode) {
-  //     // Modo edición: actualiza la película existente
-  //     peliculaAGuardar.id = this.currentId;
+    if (this.isEditMode) {
+      // Modo edición: actualiza la película existente
+      UsuarioGuardar.id = this.currentId;
 
-  //     this.miServicio
-  //       .editMovie(peliculaAGuardar)
-  //       .subscribe((pelculaeditada) => {
-  //         alert('La película ha sido actualizada correctamente.');
-  //         this.cargarTodasPeliculas(); // Recarga la lista
-  //       });
-  //   } else {
-  //     // Modo creación: añade nueva película
-  //     this.miServicio.addMovie(peliculaAGuardar).subscribe(() => {
-  //       alert('La película ha sido guardada correctamente.');
-  //       this.cargarTodasPeliculas(); // Recarga la lista
-  //     });
-  //   }
-  // }
+      this.usuarioService
+        .editUsuarios(UsuarioGuardar)
+        .subscribe((usuarioeditada) => {
+          alert('La película ha sido actualizada correctamente.');
+          this.cargarUsuarios(); // Recarga la lista
+        });
+    } else {
+      // Modo creación: añade nueva película
+      this.usuarioService.addUsuarios(UsuarioGuardar).subscribe(() => {
+        alert('La película ha sido guardada correctamente.');
+        this.cargarUsuarios(); // Recarga la lista
+      });
+    }
+   }
 }

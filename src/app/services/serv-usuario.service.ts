@@ -14,6 +14,13 @@ export class ServUsuarioService {
   getUsuarios(): Observable<Usuario[]> {
     return this.httpcliente.get<Usuario[]>(this.url);
   }
+  editUsuarios(usuario: Usuario): Observable<Usuario> {
+    let urlUsuario = `${this.url}/${usuario.id}`;
+    return this.httpcliente.put<Usuario>(urlUsuario, usuario);
+  }
+  addUsuarios(usuario: Usuario): Observable<Usuario> {
+    return this.httpcliente.post<Usuario>(this.url, usuario);
+  }
 
   // updateUsuario(usuario: Usuario): Observable<Usuario> {
   // return this.httpcliente.put<Usuario>(`${this.url}/${usuario.id}`, usuario);
