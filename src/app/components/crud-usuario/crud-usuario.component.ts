@@ -1,9 +1,9 @@
+// filepath: src/app/components/crud-usuario/crud-usuario.component.ts
 import { Component } from '@angular/core';
-import { HttpClient, HttpClientModule} from '@angular/common/http';
-import { Usuario } from '../../models/Usuario';
 import { CommonModule } from '@angular/common';
-
-import { Observable } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
+import { Usuario } from '../../models/Usuario';
+import { ServUsuarioService } from '../../services/serv-usuario.service';
 
 @Component({
   selector: 'app-crud-usuario',
@@ -13,18 +13,14 @@ import { Observable } from 'rxjs';
 })
 export class CrudUsuarioComponent {
   usuarios: Usuario[] = [];
-  private url = 'http://localhost:3000/usuario';
 
-  constructor(private httpclient: HttpClient) {
+  constructor(private usuarioService: ServUsuarioService) {
     this.cargarUsuarios();
   }
-     cargarUsuarios() {
-    this.httpclient.get< Usuario[]>(this.url).subscribe((data) => {
+
+  cargarUsuarios() {
+    this.usuarioService.getUsuarios().subscribe((data) => {
       this.usuarios = data;
     });
-   }
-  
   }
-
- 
-
+}
