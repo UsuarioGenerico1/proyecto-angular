@@ -44,7 +44,7 @@ export class LoginComponent {
     this.errorMessage = '';
   }
   cargarUsuarios() {
-  this.http.get<Usuario[]>('/usuario.json').subscribe((data: Usuario[]) => {
+  this.http.get<Usuario[]>('http://localhost:3000/usuario').subscribe((data: Usuario[]) => {
     this.usuarios = data;
   });
 }
