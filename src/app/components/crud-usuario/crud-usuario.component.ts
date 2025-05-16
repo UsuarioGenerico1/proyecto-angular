@@ -110,39 +110,39 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
     });
   }
   // Búsqueda de Usuario
-  // search(cajaTexto: HTMLInputElement) {
-  //   if (cajaTexto.value) {
-  //     // Si hay texto, busca películas que coincidan
-  //     this.miServicio
-  //       .getMoviesSearch(cajaTexto.value)
-  //       .subscribe((data: Pelicula[]) => {
-  //         this.dataSource.data = data;
-            // this.dataSource.paginator = this.paginator; 
-  //       });
-  //   } else {
+  search(cajaTexto: HTMLInputElement) {
+    if (cajaTexto.value) {
+      // Si hay texto, busca películas que coincidan
+      this.usuarioService
+        .getUsuarioSearch(cajaTexto.value)
+        .subscribe((data: Usuario[]) => {
+          this.dataSource.data = data;
+            this.dataSource.paginator = this.paginator; 
+        });
+    } else {
       
-  //     this.cargarTodasPeliculas();
-  //   }
-  // }
+      this.cargarUsuarios();
+    }
+  }
 
   // Elimina una película con confirmación
-  // eliminar(pelicula: Pelicula) {
-  //   const confirmado = confirm(
-  //     `Está seguro de que desea eliminar la película ${pelicula.title}?`
-  //   );
-  //   if (confirmado) {
-  //     this.miServicio.deleteMovie(pelicula).subscribe({
-  //       next: () => {
-  //         alert('La película ha sido eliminada correctamente.');
-  //         this.cargarTodasPeliculas(); // Recarga la lista
-  //       },
-  //       error: (err) => {
-  //         console.error('Error al eliminar la película:', err);
-  //         alert('Ocurrió un error al intentar eliminar la película.');
-  //       },
-  //     });
-  //   }
-  // }
+  eliminar(usuario: Usuario) {
+    const confirmado = confirm(
+      `Está seguro de que desea eliminar la película ${usuario.nombre}?`
+    );
+    if (confirmado) {
+      this.usuarioService.deleteUsuario(usuario).subscribe({
+        next: () => {
+          alert('La película ha sido eliminada correctamente.');
+          this.cargarUsuarios(); // Recarga la lista
+        },
+        error: (err) => {
+          console.error('Error al eliminar la película:', err);
+          alert('Ocurrió un error al intentar eliminar la película.');
+        },
+      });
+    }
+  }
 
   // Prepara el formulario para editar una película
   editar(usu: Usuario) {
@@ -163,19 +163,21 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
   }
 
   // Limpia el formulario y desactiva el modo edición
-  // clearForm() {
-  //   this.form.reset({
-  //     title: '',
-  //     genre: '',
-  //     releaseDate: '',
-  //     budget: 0,
-  //     poster: '',
-  //     rating: '',
-  //     isAvailable: false,
-  //   });
-  //   this.isEditMode = false;
-  //   this.currentId = 0;
-  // }
+    clearForm() {
+      this.form.reset({
+        nombre: '',
+        apellido: '',
+        cedula: '',
+        usuario: '',
+        tipo_usuario: '',
+        genero: '',
+        direccion: '',
+        contrasenia: ''
+
+      });
+      this.isEditMode = false;
+      this.currentId = 0;
+    }
   // Maneja el envío del formulario (crear/actualizar)
   onSubmit() {
     if (this.form.invalid) { // Verifica validaciones

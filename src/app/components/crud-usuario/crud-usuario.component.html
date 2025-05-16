@@ -100,15 +100,15 @@
               Guardar
             </button>
             <!-- Botón para cancelar/limpiar el formulario -->
-            <!-- <button mat-raised-button color="primary" type="reset" (click)="clearForm()">
+            <button mat-raised-button color="primary" type="reset" (click)="clearForm()">
               Cancelar
-            </button> -->
+            </button>
           </div>
         </form>
       </div>
 
       <!-- Formulario de búsqueda -->
-      <!-- <form class="search">
+      <form class="search">
         <mat-form-field class="example-full-width">
           <mat-label>Buscar:</mat-label>
           <input
@@ -119,7 +119,9 @@
             (keyup)="search(searchinput)"  
           />
         </mat-form-field>
-    </form> -->
+    </form>
+
+
          <table mat-table [dataSource]="dataSource"> 
           <!-- Columna para el nombre -->
           <ng-container matColumnDef="nombre">
@@ -173,10 +175,10 @@
               >
                 Editar
               </button>
-              <!-- Botón para eliminar (click)="eliminar(element)" -->
+              <!-- Botón para eliminar  -->
               <button 
               mat-raised-button color="warn" 
-              
+              (click)="eliminar(element)"
               >
                 Eliminar
               </button>

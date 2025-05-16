@@ -21,10 +21,26 @@ export class ServUsuarioService {
   addUsuarios(usuario: Usuario): Observable<Usuario> {
     return this.httpcliente.post<Usuario>(this.url, usuario);
   }
+  getUsuarioSearch(nombre?: string): Observable<Usuario[]> {
+    return this.httpcliente.get<Usuario[]>(this.url).pipe(
+      map((usuario) =>
+        usuario.filter(
+          (usuario) =>
+            (nombre
+              ? usuario.nombre.toLowerCase().includes(nombre.toLowerCase())
+              : true) || //this works :D
+            (nombre
+              ? usuario.apellido.toLowerCase().includes(nombre.toLowerCase())
+              : true)
+        )
+      )
+    );
+  }
 
 
-  // deleteUsuario(id: number): Observable<any> {
-  // return this.httpcliente.delete(`${this.url}/${id}`);
-  // }
+  deleteUsuario(usuario: Usuario): Observable<void> {
+    let urlUsuario = `${this.url}/${usuario.id}`;
+    return this.httpcliente.delete<void>(urlUsuario);
+  }
 
 }

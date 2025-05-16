@@ -1,17 +1,6 @@
 {
   "usuario": [
     {
-      "id": "1",
-      "nombre": "Omar",
-      "apellido": "Yagual",
-      "cedula": "0912345678",
-      "usuario": "omar20",
-      "tipo_usuario": "ciudadano",
-      "genero": "masculino",
-      "direccion": "Av. Principal 123",
-      "contrasenia": "omar123"
-    },
-    {
       "id": "2",
       "nombre": "Ana",
       "apellido": "García",
@@ -109,17 +98,6 @@
       "genero": "femenino",
       "direccion": "Calle 3 #7-19",
       "contrasenia": "vvargas12"
-    },
-    {
-      "id": "16ce",
-      "nombre": "Pedro",
-      "apellido": "Zambrano",
-      "cedula": "0978894523",
-      "usuario": "pedrito20",
-      "tipo_usuario": "Funcional",
-      "genero": "Masculino",
-      "direccion": "bastion",
-      "contrasenia": "pedrito2001"
     }
   ]
 }
