@@ -22,9 +22,6 @@ export class ServUsuarioService {
     return this.httpcliente.post<Usuario>(this.url, usuario);
   }
 
-  // updateUsuario(usuario: Usuario): Observable<Usuario> {
-  // return this.httpcliente.put<Usuario>(`${this.url}/${usuario.id}`, usuario);
-  // }
 
   // deleteUsuario(id: number): Observable<any> {
   // return this.httpcliente.delete(`${this.url}/${id}`);

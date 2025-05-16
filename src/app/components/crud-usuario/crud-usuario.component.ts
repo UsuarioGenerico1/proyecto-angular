@@ -71,7 +71,7 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
   ngAfterViewInit() {
     // Asigna el paginador a la tabla
     this.dataSource.paginator = this.paginator;
-    //  this.paginator.pageSize = 5;
+    
   }
 
   

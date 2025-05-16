@@ -1,7 +1,7 @@
 {
   "usuario": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Omar",
       "apellido": "Yagual",
       "cedula": "0912345678",
@@ -12,7 +12,7 @@
       "contrasenia": "omar123"
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "Ana",
       "apellido": "García",
       "cedula": "0987654321",
@@ -23,18 +23,18 @@
       "contrasenia": "anaG2023"
     },
     {
-      "id": 3,
       "nombre": "Carlos",
       "apellido": "Mendoza",
-      "cedula": "0976543210",
+      "cedula": "0976543218",
       "usuario": "carlosm",
       "tipo_usuario": "ciudadano",
       "genero": "masculino",
       "direccion": "Av. Central 789",
-      "contrasenia": "carMen1"
+      "contrasenia": "carMen1",
+      "id": "3"
     },
     {
-      "id": 4,
+      "id": "4",
       "nombre": "María",
       "apellido": "López",
       "cedula": "0965432109",
@@ -45,7 +45,7 @@
       "contrasenia": "mlopez12"
     },
     {
-      "id": 5,
+      "id": "5",
       "nombre": "Juan",
       "apellido": "Pérez",
       "cedula": "0956789012",
@@ -56,7 +56,7 @@
       "contrasenia": "jperez2023"
     },
     {
-      "id": 6,
+      "id": "6",
       "nombre": "Lucía",
       "apellido": "Fernández",
       "cedula": "0945678901",
@@ -67,7 +67,7 @@
       "contrasenia": "lufer2023"
     },
     {
-      "id": 7,
+      "id": "7",
       "nombre": "Pedro",
       "apellido": "González",
       "cedula": "0934567890",
@@ -78,7 +78,7 @@
       "contrasenia": "pgonzalez"
     },
     {
-      "id": 8,
+      "id": "8",
       "nombre": "Sofía",
       "apellido": "Rodríguez",
       "cedula": "0923456789",
@@ -89,7 +89,7 @@
       "contrasenia": "srodriguez"
     },
     {
-      "id": 9,
+      "id": "9",
       "nombre": "Diego",
       "apellido": "Martínez",
       "cedula": "0912345098",
@@ -100,7 +100,7 @@
       "contrasenia": "dm2023"
     },
     {
-      "id": 10,
+      "id": "10",
       "nombre": "Valeria",
       "apellido": "Vargas",
       "cedula": "0998765432",

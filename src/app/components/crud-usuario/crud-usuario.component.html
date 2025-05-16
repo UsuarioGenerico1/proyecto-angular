@@ -59,8 +59,8 @@
             <mat-label>Tipo de Usuario:</mat-label>
             <mat-select formControlName="tipo_usuario">  
               <mat-option>Seleccione...</mat-option>  <!-- Opción por defecto -->
-              <mat-option value="Ciudadano">Ciudadano</mat-option>
-              <mat-option value="Funcional">Funcional</mat-option>
+              <mat-option value="ciudadano">Ciudadano</mat-option>
+              <mat-option value="funcionario">Funcionario</mat-option>
             </mat-select>
           </mat-form-field>
 
@@ -68,8 +68,8 @@
             <mat-label>Genero:</mat-label>
             <mat-select formControlName="genero">  
               <mat-option>Seleccione...</mat-option>  <!-- Opción por defecto -->
-              <mat-option value="Masculino">Masculino</mat-option>
-              <mat-option value="Femenino">Femenino</mat-option>
+              <mat-option value="masculino">Masculino</mat-option>
+              <mat-option value="femenino">Femenino</mat-option>
             </mat-select>
           </mat-form-field>
         
@@ -168,8 +168,8 @@
             <td mat-cell *matCellDef="let element">
               <!-- Botón para editar agregar (click)="editar(element)"--> 
               <button 
-              mat-raised-button color="accent" 
-              
+              mat-raised-button color="accent"  
+              (click)="editar(element)"
               >
                 Editar
               </button>
