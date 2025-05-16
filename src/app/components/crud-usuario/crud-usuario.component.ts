@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule} from '@angular/common/http';
 import { Usuario } from '../../models/Usuario';
 import { CommonModule } from '@angular/common';
+
 import { Observable } from 'rxjs';
 
 @Component({
