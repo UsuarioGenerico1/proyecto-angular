@@ -1,14 +1,29 @@
 {
-    "foro":[
-        {
-            "id":1,
-            "titulo":"Titulo",
-            "contenido":"algo"
-        },
-        {
-            "id":2,
-            "titulo":"Titulo2",
-            "contenido":"algo2"
-        }
-    ]
+  "foro": [
+    {
+      "id": 1,
+      "titulo": "Titulo",
+      "contenido": "algo"
+    },
+    {
+      "id": 2,
+      "titulo": "Titulo2",
+      "contenido": "algo2"
+    },
+    {
+      "id": 3,
+      "titulo": "Titulo3",
+      "contenido": "algo3"
+    },
+    {
+      "id": 4,
+      "titulo": "Titulo4",
+      "contenido": "algo4"
+    },
+    {
+      "id": "",
+      "titulo": "titulo6",
+      "contenido": "algo6"
+    }
+  ]
 }

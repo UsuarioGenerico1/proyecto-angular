@@ -46,3 +46,9 @@ h1{
     .new-post-btn:hover {
       background-color: #357ab8;
     }
+    .description{
+      width: 60%;
+    }
+    .titulo-input{
+      width: 60%;
+    }

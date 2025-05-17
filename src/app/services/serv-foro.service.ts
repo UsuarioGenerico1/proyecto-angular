@@ -15,11 +15,11 @@ export class ServForoService {
 
   //metodo para obtener la lista de pelicilas
   
-  getMovie():Observable<foro[]>{
+  getForo():Observable<foro[]>{
     return this.httpclient.get<foro[]>(this.jsonurl);//obtener la lista de foros
   }
   //filtrar   se traen todos los datos del servidor al cliente y en el cliente se filtral , menos eficiencia
-  getMovieSearch(titulo?:string, contenido ?:string):Observable<foro[]>{
+  getForoSearch(titulo?:string, contenido ?:string):Observable<foro[]>{
     return this.httpclient.get<foro[]>(this.jsonurl).pipe(
       map((foros)=>
         foros.filter((foros)=>
@@ -30,17 +30,17 @@ export class ServForoService {
     )
   }
   //agregar
-  addMovie(foro:foro):Observable<foro>{
+  addForo(foro:foro):Observable<foro>{
     return this.httpclient.post<foro>(this.jsonurl,foro);
   }
   //editar
-  editMovie(foros:foro):Observable<foro>{
+  editForo(foros:foro):Observable<foro>{
     let urlforo =`${this.jsonurl}/${foros.id}`
     return this.httpclient.put<foro>(urlforo,foros);
   }
 
   //eliminar
-  eliminarMovie(foros:foro):Observable<foro>{
+  eliminarForo(foros:foro):Observable<foro>{
     let urlforo =`${this.jsonurl}/${foros.id}`
     return this.httpclient.delete<foro>(urlforo);
   }
