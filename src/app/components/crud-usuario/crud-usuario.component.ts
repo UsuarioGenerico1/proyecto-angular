@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Usuario } from '../../models/Usuario';
 import { FormBuilder, FormGroup, ReactiveFormsModule,Validators} from '@angular/forms';
 import { ServUsuarioService } from '../../services/serv-usuario.service';
-
+import { Router } from '@angular/router';
 //Material Angular 
 
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator'; // Para paginación
@@ -60,6 +60,8 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
     'actions'
   ];
 
+  tipoUsuario: string | null = null;
+
   // Fuente de datos para la tabla
   dataSource = new MatTableDataSource<Usuario>();
 
@@ -80,12 +82,16 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
 
   constructor(
     private usuarioService: ServUsuarioService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
     ) {}
 
   // Método del ciclo de vida: inicialización del componente
   ngOnInit(): void {
-    this.cargarUsuarios(); // Carga inicial de datos
+    this.cargarUsuarios(); // Carga 
+    
+
+    // inicial de datos
 
     this.form = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
@@ -97,7 +103,13 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
       direccion: ['', [Validators.required, Validators.minLength(5)]],
       contrasenia: ['', [Validators.required, Validators.minLength(6)]]
     });
-
+    const usuarioLogueado = localStorage.getItem('usuarioLogueado');
+    if (usuarioLogueado) {
+      const user = JSON.parse(usuarioLogueado);
+      this.tipoUsuario = user.tipo_usuario;
+    }else {
+    this.router.navigate(['/login']); // Redirige si no hay usuario logueado
+  }
     
   }
 

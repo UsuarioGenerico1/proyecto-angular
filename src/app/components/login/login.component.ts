@@ -8,6 +8,7 @@ import { MatOption, MatSelectModule } from '@angular/material/select';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Usuario } from '../../models/Usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +34,11 @@ export class LoginComponent {
   registerForm: FormGroup; 
 
   
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(
+    private fb: FormBuilder, 
+    private http: HttpClient,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       usuario: [''],
       contraseña: ['']
@@ -70,8 +75,9 @@ export class LoginComponent {
   if (user) {
     this.errorMessage = '';
     // Guarda el usuario y tipo en localStorage
-    // localStorage.setItem('usuarioLogueado', JSON.stringify(user));
+    localStorage.setItem('usuarioLogueado', JSON.stringify(user));
     alert('¡Login exitoso!');
+    this.router.navigate(['/usuario']);
     // Aquí puedes redirigir a la ruta del CRUD, por ejemplo:
     // this.router.navigate(['/crud-usuario']);
   } else {
