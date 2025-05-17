@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Subir imagen</h2>
+<mat-dialog-content>
+  <div class="flex flex-col gap-4 p-4">
+    <!-- Opción 1: URL -->
+    <div class="url-option" style="display: flex; flex-direction: column; gap: 0.5rem;">
+      <label for="urlInput" style="font-weight: 500; margin-bottom: 0.25rem;">Ingresar URL de imagen</label>
+      <input id="urlInput" type="text" [(ngModel)]="imageUrl" placeholder="https://example.com/imagen.jpg" (input)="selectUrl()" style="padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; outline: none;">
+      <button mat-raised-button color="primary" (click)="selectUrl()" class="w-full" style="margin-top: 0.5rem;">
+        Usar esta URL
+      </button>
+    </div>
+
+    <div class="separator">
+      <span class="border-t flex-grow"></span>
+      <span class="px-4">O</span>
+      <span class="border-t flex-grow"></span>
+    </div>
+
+    <!-- Opción 2: Seleccionar archivo -->
+    <div class="file-option">
+      <input type="file" #fileInput accept="image/*" hidden (change)="onFileSelected($event)">
+      <button mat-raised-button color="accent" (click)="fileInput.click()" class="w-full">
+        <mat-icon>upload</mat-icon>
+        Seleccionar archivo
+      </button>
+      <p class="file-name" *ngIf="selectedFile">{{ selectedFile.name }}</p>
+    </div>
+
+    <!-- Vista previa -->
+    <div *ngIf="imgPreview" class="file-name">
+      <img [src]="imgPreview" alt="Vista previa" style="max-width:200px;">
+    </div>
+    <div *ngIf="!imgPreview && imageUrl" class="file-name">
+      <img [src]="imageUrl" alt="Vista previa" style="max-width:200px;">
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-raised-button color="primary" (click)="confirmSelection()" [disabled]="!hasSelection()">
+    Aceptar
+  </button>
+</mat-dialog-actions>
