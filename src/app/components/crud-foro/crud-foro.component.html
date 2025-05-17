@@ -1,9 +1,59 @@
+<h1>Foro de Discusión</h1>
+<div>
+  <p>Opciones de administrados</p>
+  <a href="#" class="new-post-btn">+ Nueva Publicación</a>
+  @if (admi) {
+  <button class="new-post-btn">Moderar comentarios</button>
+  }
 
+</div>
+@for (dis of discuciones; track $index) {
+<div class="container">
+
+    <div class="post">
+      <h3>{{dis.titulo}}</h3>
+      <p>{{dis.contenido}}</p>
+      <p>fecha:{{dis.id}}</p>
+    </div>
+</div>
+}
+
+  
+<app-tabla-dinamica
+[displayedColumns]="displayedColumns"
+[data]="data"
+(edit)="manejarEdicion($event)" 
+(delete)="manejarBorrado($event)">
+>   </app-tabla-dinamica>
 <br>
+<p>texto para separar</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <button (click)="openModal()"> Abrir Modal</button>
 
-<!--se puede cambiar los datos que estan entre comillas por los que quieran-->
-<!--este es un ejemplo-->
 <app-vtn-modal
   [isOpen]="isModalOpen"      
   [title]="'¿Estás seguro?'"   
@@ -23,10 +73,6 @@ aqui tambien se puede escribir cosas
     <p class="contenido">Descripcion</p>
     <p class="fecha-publicaion">Fecha</p>
 </div>
-<!--    
-<app-tabla-dinamica
-[displayedColumns]="displayedColumns"
-[data]="data"
->   </app-tabla-dinamica>
-<br>
-<p>texto para separar</p>-->
+
+
+

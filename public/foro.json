@@ -2,8 +2,13 @@
     "foro":[
         {
             "id":1,
-            "Titulo":"Titulo",
+            "titulo":"Titulo",
             "contenido":"algo"
+        },
+        {
+            "id":2,
+            "titulo":"Titulo2",
+            "contenido":"algo2"
         }
     ]
 }
