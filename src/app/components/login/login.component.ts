@@ -30,12 +30,24 @@ export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string = '';
   usuarios: Usuario[] = [];
+  registerForm: FormGroup; 
+
   
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.loginForm = this.fb.group({
       usuario: [''],
       contraseña: ['']
     });
+    this.registerForm = this.fb.group({
+    nombre: [''],
+    apellido: [''],
+    cedula: [''],
+    usuario: [''],
+    tipo_usuario: [''],
+    genero: [''],
+    direccion: [''],
+    contrasenia: ['']
+  });
     this.cargarUsuarios();
   }
 
@@ -44,27 +56,47 @@ export class LoginComponent {
     this.errorMessage = '';
   }
   cargarUsuarios() {
-  this.http.get<Usuario[]>('http://localhost:3000/usuario').subscribe((data: Usuario[]) => {
+  this.http.get<Usuario[]>('http://localhost:3000/usuario').subscribe((data) => {
     this.usuarios = data;
   });
-}
+
+};
 
   login() {
-    const { usuario, contraseña } = this.loginForm.value;
-    const user = this.usuarios.find(
-      u => u.usuario === usuario && u.contrasenia === contraseña
-    );
-    if (user) {
-      this.errorMessage = '';
-      // Aquí puedes redirigir o guardar sesión
-      alert('¡Login exitoso!');
-    } else {
-      this.errorMessage = 'Usuario o contraseña incorrectos';
-    }
-  
+  const { usuario, contraseña } = this.loginForm.value;
+  const user = this.usuarios.find(
+    u => u.usuario === usuario && u.contrasenia === contraseña
+  );
+  if (user) {
+    this.errorMessage = '';
+    // Guarda el usuario y tipo en localStorage
+    // localStorage.setItem('usuarioLogueado', JSON.stringify(user));
+    alert('¡Login exitoso!');
+    // Aquí puedes redirigir a la ruta del CRUD, por ejemplo:
+    // this.router.navigate(['/crud-usuario']);
+  } else {
+    this.errorMessage = 'Usuario o contraseña incorrectos';
   }
+}
 
   register() {
-    // Lógica para registrar usuario
+  if (this.registerForm.invalid) {
+    alert('Por favor, complete todos los campos.');
+    return;
   }
+  const nuevoUsuario = this.registerForm.value;
+  this.http.post<Usuario>('http://localhost:3000/usuario', nuevoUsuario)
+    .subscribe({
+      next: (usuario) => {
+        alert('¡Usuario registrado exitosamente!');
+        this.toggleRegister();
+        this.cargarUsuarios();
+        this.registerForm.reset();
+      },
+      error: (err) => {
+        alert('Error al registrar usuario');
+        console.error(err);
+      }
+    });
+}
 }
