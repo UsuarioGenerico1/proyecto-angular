@@ -3,8 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TablaDinamicaComponent } from './tabla-dinamica.component';
 
 describe('TablaDinamicaComponent', () => {
-  let component: TablaDinamicaComponent;
-  let fixture: ComponentFixture<TablaDinamicaComponent>;
+  let component: TablaDinamicaComponent<any>;
+  let fixture: ComponentFixture<TablaDinamicaComponent<any>>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

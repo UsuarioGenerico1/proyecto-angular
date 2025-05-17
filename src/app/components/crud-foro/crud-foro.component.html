@@ -5,8 +5,29 @@
   @if (admi) {
   <button class="new-post-btn">Moderar comentarios</button>
   }
-
 </div>
+
+@if (newPubli) {
+ <form class="agregar-form" [formGroup]="form" (submit)="onSubmit()">
+  <p>
+  <mat-form-field class="titulo-input">
+    <mat-label>Titulo</mat-label>
+    <input matInput type="text" formControlName="titulo" >
+  </mat-form-field>
+  </p>
+  
+  <p>
+    <mat-form-field class="description">
+      <mat-label>Contenido</mat-label>
+      <textarea matInput type="text" formControlName="contenido"></textarea>
+    </mat-form-field>
+  </p>
+  <button mat-raised-button> Guardar</button>
+  <button mat-raised-button> Cancelar</button>
+</form>
+}
+
+
 @for (dis of discuciones; track $index) {
 <div class="container">
 
@@ -18,15 +39,13 @@
 </div>
 }
 
-  
 <app-tabla-dinamica
 [displayedColumns]="displayedColumns"
 [data]="data"
 (edit)="manejarEdicion($event)" 
-(delete)="manejarBorrado($event)">
->   </app-tabla-dinamica>
+(delete)="manejarBorrado($event)"></app-tabla-dinamica>
 <br>
-<p>texto para separar</p>
+<p>texto para separar</p> 
 
 
 
