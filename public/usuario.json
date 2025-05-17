@@ -98,6 +98,17 @@
       "genero": "femenino",
       "direccion": "Calle 3 #7-19",
       "contrasenia": "vvargas12"
+    },
+    {
+      "id": "f37c",
+      "nombre": "maria ",
+      "apellido": "zambrano ",
+      "cedula": "0956451254",
+      "usuario": "mafer",
+      "tipo_usuario": "funcionario",
+      "genero": "femenino",
+      "direccion": "bastion",
+      "contrasenia": "maria1"
     }
   ]
 }

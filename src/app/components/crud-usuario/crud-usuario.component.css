@@ -1,0 +1,79 @@
+
+.mini-form {
+  max-width: 500px;
+  margin: 0 auto;
+  font-size: 0.8rem;
+}
+
+.mini-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+}
+
+.mini-form-group {
+  margin-bottom: 2px;
+}
+
+.mini-form-group label {
+  display: block;
+  font-size: 0.7rem;
+  color: #555;
+  margin-bottom: 1px;
+}
+
+.mini-form-group input, 
+.mini-form-group select {
+  width: 100%;
+  padding: 3px 5px;
+  font-size: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  height: 22px;
+  box-sizing: border-box;
+}
+
+.mini-form-actions {
+  grid-column: span 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+  margin-top: 3px;
+}
+
+.mini-btn {
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  height: 22px;
+  line-height: 18px;
+}
+
+/* Estilo para la página de usuario */
+
+/* Estilo inspirado en dashboards profesionales */
+.usuario-page {
+  background-color: #b2a8a8;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.usuario-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #e6e3e3;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid #2a2a2a;
+}
+
+h1 {
+  color: #000000;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+}
