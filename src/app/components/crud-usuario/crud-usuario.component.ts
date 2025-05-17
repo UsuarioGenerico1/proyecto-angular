@@ -14,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon'; // Para íconos
 import { MatInputModule } from '@angular/material/input'; // Para inputs
 import { MatFormFieldModule } from '@angular/material/form-field'; // Para campos de formulario
 import { MatSelectModule } from '@angular/material/select'; // Para selectores
-
+import { MatListModule } from '@angular/material/list';
 
 
 @Component({
@@ -30,7 +30,8 @@ import { MatSelectModule } from '@angular/material/select'; // Para selectores
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatListModule
 
   ],
   templateUrl: './crud-usuario.component.html',
@@ -61,6 +62,7 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
   ];
 
   tipoUsuario: string | null = null;
+  usuarioLogueado: Usuario | null = null;
 
   // Fuente de datos para la tabla
   dataSource = new MatTableDataSource<Usuario>();
@@ -103,15 +105,23 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
       direccion: ['', [Validators.required, Validators.minLength(5)]],
       contrasenia: ['', [Validators.required, Validators.minLength(6)]]
     });
-    const usuarioLogueado = localStorage.getItem('usuarioLogueado');
-    if (usuarioLogueado) {
-      const user = JSON.parse(usuarioLogueado);
-      this.tipoUsuario = user.tipo_usuario;
-    }else {
-    this.router.navigate(['/login']); // Redirige si no hay usuario logueado
-  }
+
+    const usuarioStorage = localStorage.getItem('usuarioLogueado');
+    if (usuarioStorage) {
+      this.usuarioLogueado = JSON.parse(usuarioStorage);
+      this.tipoUsuario = this.usuarioLogueado?.tipo_usuario || null;
+      
+      if (!this.tipoUsuario) {
+        this.router.navigate(['/login']);
+      }
+    } else {
+      this.router.navigate(['/login']);
+    }
+}
     
-  }
+  
+    
+  
 
 
   cargarUsuarios():void {
@@ -200,7 +210,7 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
     let UsuarioGuardar: Usuario = this.form.value;
 
     if (this.isEditMode) {
-      // Modo edición: actualiza la película existente
+      // Modo edición: actualiza usuario existente
       UsuarioGuardar.id = this.currentId;
 
       this.usuarioService
