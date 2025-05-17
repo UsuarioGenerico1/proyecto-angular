@@ -1,0 +1,9 @@
+{
+    "foro":[
+        {
+            "id":1,
+            "Titulo":"Titulo",
+            "contenido":"algo"
+        }
+    ]
+}
