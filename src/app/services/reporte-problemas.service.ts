@@ -39,21 +39,21 @@ export class ReporteProblemasService {
   //   );
   // }
 
-  // //agregar reportes
-  // addReporte(reporte: Reportes): Observable<Reportes> {
-  //   return this.httpclient.post<Reportes>(this.jsonUrl, reporte);
-  // }
+  //agregar reportes
+  addReporte(reporte: Reportes): Observable<Reportes> {
+    return this.httpclient.post<Reportes>(this.jsonUrl, reporte);
+  }
 
-  // //editar reportes
+  //editar reportes
 
-  // editReporte(reporte: Reportes): Observable<Reportes> {
-  //   let urlReporte = `${this.jsonUrl}/${reporte.id}`;
-  //   return this.httpclient.put<Reportes>(urlReporte, reporte);
-  // }
+  editReporte(reporte: Reportes): Observable<Reportes> {
+    let urlReporte = `${this.jsonUrl}/${reporte.id}`;
+    return this.httpclient.put<Reportes>(urlReporte, reporte);
+  }
 
-  // //eliminar reportes
-  // deleteReporte(reporte: Reportes): Observable<void> {
-  //   let urlReporte = `${this.jsonUrl}/${reporte.id}`;
-  //   return this.httpclient.delete<void>(urlReporte);
-  // }
+  //eliminar reportes
+  deleteReporte(reporte: Reportes): Observable<void> {
+    let urlReporte = `${this.jsonUrl}/${reporte.id}`;
+    return this.httpclient.delete<void>(urlReporte);
+  }
 }

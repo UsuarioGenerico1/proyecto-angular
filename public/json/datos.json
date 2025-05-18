@@ -65,6 +65,17 @@
       "estado": "Resuelto",
       "imagen": "https://example.com/img/arbol.jpg",
       "usuarioId": 106
+    },
+    {
+      "id": 7,
+      "titulo": "xddd",
+      "descripcion": "xcdd",
+      "categoria": "Alumbrado",
+      "direccion": "ddd",
+      "fecha": "2025-05-07T05:00:00.000Z",
+      "estado": "resuelto",
+      "imagen": "horario 7to.png",
+      "usuarioId": 1
     }
   ]
 }

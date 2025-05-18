@@ -1,18 +1,16 @@
 <!-- centrar el h1 -->
-<h1 class="text-3xl font-bold text-center my-4">
-  Formulario de reportes
-</h1>
+<h1 class="text-3xl font-bold text-center my-4">Formulario de reportes</h1>
 <!-- quiero usar solo angular material y tailwind en este html -->
 <!-- ocupo hacer un formulario con los datos de reportes  -->
 
 <section class="flex flex-col items-center justify-center">
   <div
-    class="form-container flex flex-col items-center justify-center w-full max-w-2xl mx-auto p-4 bg-white shadow-md rounded-lg border border-gray-300"
+    class="form-container flex flex-col items-center justify-between w-full max-w-3xl p-4 bg-white shadow-md rounded-lg border border-gray-300 min-h-[650px] overflow-auto"
   >
     <!-- flex flex-col justify-center space-x-6 -->
-    <form class="example-form flex flex-col items-center justify-center" [formGroup]="myForm" (ngSubmit)="ngOnInit()">
-      <section class="flex flex-auto items-center gap-auto mb-2">
-        <mat-form-field class="formElement">
+    <form class="example-form" [formGroup]="myForm" (ngSubmit)="ngOnInit()">
+      <div class="">
+        <mat-form-field class="formElement w-full">
           <mat-label>Titulo:</mat-label>
           <input
             matInput
@@ -21,32 +19,9 @@
             formControlName="titulo"
           />
         </mat-form-field>
+      </div>
 
-        <mat-form-field>
-          <mat-label>Fecha</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="fecha" />
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </section>
-
-      <!-- Espacio -->
-
-      <section class="flex items-center gap-7 mb-2">
-        <mat-form-field class="formElement">
-          <mat-label>Descripción:</mat-label>
-          <input
-            matInput
-            type="text"
-            placeholder="Descripción"
-            formControlName="descripcion"
-          />
-        </mat-form-field>
-
+      <div class="flex items-center gap-4 mb-2">
         <mat-form-field class="formElement">
           <mat-label>Categoría:</mat-label>
           <mat-select formControlName="categoria">
@@ -59,12 +34,37 @@
             <mat-option value="Servicio de agua">Servicio de agua</mat-option>
           </mat-select>
         </mat-form-field>
-      </section>
+
+        <mat-form-field>
+          <mat-label>Fecha </mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="fecha" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <!-- Espacio -->
+
+      <div class="flex items-center">
+        <mat-form-field class="formElement w-full">
+          <mat-label>Descripción:</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Descripción"
+            formControlName="descripcion"
+          />
+        </mat-form-field>
+      </div>
 
       <!-- espacio------------------------------------------------------------------------- -->
 
-      <section class="flex flex-col gap-4">
-        <mat-form-field class="formElement">
+      <div class="flex items-center">
+        <mat-form-field class="formElement w-full">
           <mat-label>Dirección:</mat-label>
           <input
             matInput
@@ -73,11 +73,11 @@
             formControlName="direccion"
           />
         </mat-form-field>
-      </section>
+      </div>
 
       <!-- espacio ---------------------------------------------------------------------------->
 
-      <div class="flex items-center gap-auto mb-2">
+      <div class="flex items-center justify-center gap-4 mb-4">
         <mat-button-toggle-group
           name="fontStyle"
           aria-label="Font Style"
@@ -89,7 +89,7 @@
         </mat-button-toggle-group>
       </div>
 
-      <section class="flex items-center gap-4 mb-2">
+      <div class="flex items-center justify-center gap-4 mb-2">
         <input
           type="text"
           [value]="nombreImagenSeleccionada || ''"
@@ -101,26 +101,54 @@
         <button
           mat-raised-button
           color="primary"
+          type="button"
           (click)="abrirDialogoSubirImagen()"
           class="h-10 px-6 text-white font-semibold shadow-md hover:bg-blue-700 transition"
         >
           Subir imagen
         </button>
-      </section>
-      <section>
+      </div>
+
+      <!--  -->
+
+      <div>
         <img
           *ngIf="imagenSeleccionada"
           [src]="imagenSeleccionada"
           alt="Vista previa"
-          class="max-w-xs mt-4 rounded shadow border border-gray-200"
+          class="mt-4 rounded shadow border border-gray-200 w-full max-h-40 object-cover"
           style="display: block"
         />
-      </section>
+      </div>
+
+      <!-- Botones -->
+
+      <div class="botones justify-center flex items-center gap-4 mb-2 mt-4">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="onSave()"
+        >
+          Guardar
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          type="reset"
+          (click)="clearForm()"
+        >
+          Cancelar
+        </button>
+      </div>
     </form>
   </div>
 </section>
 
-<section class="p-4">
+
+<div class="p-4">
+  <h1 class="text-2xl font-bold text-left my-4 mt-10">Lista de reportes</h1>
+
   <table
     mat-table
     [dataSource]="dataSource"
@@ -147,6 +175,14 @@
       <td mat-cell *matCellDef="let element">{{ element.categoria }}</td>
     </ng-container>
 
+    <!-- fecha -->
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef>fecha</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.fecha | date : "dd/MM/yyyy" }}
+      </td>
+    </ng-container>
+
     <!-- Symbol Column -->
     <ng-container matColumnDef="estado">
       <th mat-header-cell *matHeaderCellDef>Estado</th>
@@ -156,4 +192,11 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
-</section>
+
+  <mat-paginator
+    [pageSizeOptions]="[5,20, 30, 50]"
+    showFirstLastButtons
+    aria-label="Seleccione el número de filas"
+  >
+  </mat-paginator>
+</div>

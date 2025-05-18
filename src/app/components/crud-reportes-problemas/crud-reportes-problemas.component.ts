@@ -53,11 +53,14 @@ import { CommonModule } from '@angular/common';
 })
 export class CrudReportesProblemasComponent implements OnInit, AfterViewInit {
   myForm!: FormGroup;
+  isEditMode: boolean = false;
+  currentId!: number;
 
   displayedColumns: string[] = [
     'id',
     'titulo',
     'categoria',
+    'fecha',
     'estado',
     // 'fecha',
     // 'ver',
@@ -66,6 +69,10 @@ export class CrudReportesProblemasComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<Reportes>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   constructor(
     private miServicio: ReporteProblemasService,
@@ -76,18 +83,13 @@ export class CrudReportesProblemasComponent implements OnInit, AfterViewInit {
   cargarReportes(): void {
     this.miServicio.getReportes().subscribe((data: Reportes[]) => {
       this.dataSource.data = data;
+      this.dataSource.paginator = this.paginator;
     });
   }
 
-  onSave() {
-    // throw new Error('Method not implemented.');
-  }
-
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-  }
   ngOnInit(): void {
     this.cargarReportes();
+
     this.myForm = this.fb.group({
       titulo: [
         '',
@@ -99,20 +101,58 @@ export class CrudReportesProblemasComponent implements OnInit, AfterViewInit {
       ],
       descripcion: [
         '',
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.pattern(/^[a-zA-Z0-9 ]+$/),
-        ],
+        [Validators.required, Validators.pattern(/^[a-zA-Z0-9 ]+$/)],
       ],
       categoria: ['', [Validators.required]],
-      fecha: [{ value: new Date(), disabled: true }, [Validators.required]],
       direccion: ['', [Validators.required]],
+      //y que fecha no se pueda tocar
+
+      fecha: [{value: new Date(), disabled: true}],
       estado: [''],
       imagen: [''],
     });
   }
 
+  //Método para guardar el reporte
+  onSave() {
+    this.myForm.get('imagen')?.setValue(this.nombreImagenSeleccionada);
+    if (this.myForm.invalid) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
+
+    let reporteAGuardar: Reportes = this.myForm.value;
+
+    if (this.isEditMode) {
+      //Editar
+      reporteAGuardar.id = this.currentId;
+
+      this.miServicio
+        .editReporte(reporteAGuardar)
+        .subscribe((reporteEditado) => {
+          alert('El report ha sido actualizada correctamente.');
+          // this.clearForm();
+          this.cargarReportes();
+        });
+    } else {
+      this.miServicio.getReportes().subscribe((data: Reportes[]) => {
+        reporteAGuardar.id = this.getIdMayor(data) + 1;
+        reporteAGuardar.usuarioId = 1;
+        reporteAGuardar.fecha = new Date().toString();
+        this.miServicio.addReporte(reporteAGuardar).subscribe(() => {
+          alert('El reporte ha sido guardada correctamente.');
+          this.cargarReportes();
+        });
+      });
+    }
+  }
+
+  //metodo para obtener el id mayor en el json
+  getIdMayor(reportes: Reportes[]): number {
+    return reportes.reduce((max, r) => (r.id > max ? r.id : max), 0);
+  }
+
+  //Abrir el dialogo para subir imagen
   imagenSeleccionada: string | null = null;
   nombreImagenSeleccionada: string | null = null;
 
@@ -132,5 +172,10 @@ export class CrudReportesProblemasComponent implements OnInit, AfterViewInit {
         }
       }
     });
+  }
+
+  //Limpiar formulario
+  clearForm() {
+    throw new Error('Method not implemented.');
   }
 }
