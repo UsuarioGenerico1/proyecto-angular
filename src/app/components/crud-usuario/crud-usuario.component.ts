@@ -15,13 +15,14 @@ import { MatInputModule } from '@angular/material/input'; // Para inputs
 import { MatFormFieldModule } from '@angular/material/form-field'; // Para campos de formulario
 import { MatSelectModule } from '@angular/material/select'; // Para selectores
 import { MatListModule } from '@angular/material/list';
+import { VtnModalComponent } from "../../shared/vtn-modal/vtn-modal.component";
 
 
 @Component({
   selector: 'app-crud-usuario',
   standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
     ReactiveFormsModule,
     //Validators,
     MatTableModule,
@@ -31,9 +32,9 @@ import { MatListModule } from '@angular/material/list';
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatListModule
-
-  ],
+    MatListModule,
+    VtnModalComponent
+],
   templateUrl: './crud-usuario.component.html',
   styleUrl: './crud-usuario.component.css'
 })
@@ -41,9 +42,12 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
 
   // FormGroup para manejar el formulario reactivo
   form!: FormGroup;
-  
+  modalEliminarAbierto = false;
+  usuarioAEliminar: any = null;
   // Bandera para saber si estamos en modo edición
    isEditMode: boolean = false;
+  modalEditarAbierto = false;
+  usuarioAEditar: any = null;
   
   // ID de la película actualmente en edición
    currentId!: number;
@@ -147,24 +151,31 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
     }
   }
 
+  eliminar(usuario: any) {
+  this.usuarioAEliminar = usuario;
+  this.modalEliminarAbierto = true;
+}
+  cerrarModalEliminar() {
+  this.modalEliminarAbierto = false;
+  this.usuarioAEliminar = null;
+}
+confirmarEliminar() {
+  if (!this.usuarioAEliminar) return;
+  this.usuarioService.deleteUsuario(this.usuarioAEliminar).subscribe({
+    next: () => {
+      alert('El usuario ha sido eliminado correctamente.');
+      this.cargarUsuarios();
+      this.cerrarModalEliminar();
+    },
+    error: (err) => {
+      console.error('Error al eliminar el usuario:', err);
+      alert('Ocurrió un error al intentar eliminar el usuario.');
+      this.cerrarModalEliminar();
+    },
+  });
+}
   // Elimina una película con confirmación
-  eliminar(usuario: Usuario) {
-    const confirmado = confirm(
-      `Está seguro de que desea eliminar la película ${usuario.nombre}?`
-    );
-    if (confirmado) {
-      this.usuarioService.deleteUsuario(usuario).subscribe({
-        next: () => {
-          alert('La película ha sido eliminada correctamente.');
-          this.cargarUsuarios(); // Recarga la lista
-        },
-        error: (err) => {
-          console.error('Error al eliminar la película:', err);
-          alert('Ocurrió un error al intentar eliminar la película.');
-        },
-      });
-    }
-  }
+  
 
   // Prepara el formulario para editar una película
   editar(usu: Usuario) {

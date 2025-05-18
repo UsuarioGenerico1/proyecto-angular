@@ -1,17 +1,6 @@
 {
   "usuario": [
     {
-      "id": "2",
-      "nombre": "Ana",
-      "apellido": "García",
-      "cedula": "0987654321",
-      "usuario": "anagz",
-      "tipo_usuario": "funcionario",
-      "genero": "femenino",
-      "direccion": "Calle Secundaria 456",
-      "contrasenia": "anaG2023"
-    },
-    {
       "nombre": "Pedro",
       "apellido": "Mendoza",
       "cedula": "0976543218",
