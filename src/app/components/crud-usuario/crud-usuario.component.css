@@ -1,0 +1,143 @@
+/* Contenedor principal compacto */
+.admin-container {
+  padding: 15px;
+}
+
+/* Título más compacto */
+.admin-container h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Formulario compacto */
+.form-container {
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.example-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+}
+
+/* Campos de formulario compactos */
+.mat-form-field.formElement {
+  font-size: 13px;
+  margin-bottom: -1.25em; /* Reduce espacio entre campos */
+}
+
+.mat-form-field .mat-form-field-wrapper {
+  padding-bottom: 0.5em;
+}
+
+.mat-form-field .mat-form-field-infix {
+  padding: 0.5em 0;
+  border-top: 0;
+}
+
+.mat-form-field .mat-input-element {
+  font-size: 13px;
+}
+
+.mat-form-field .mat-select-value {
+  font-size: 13px;
+}
+
+.mat-form-field .mat-form-field-label {
+  font-size: 13px;
+  top: 1.2em;
+}
+
+.mat-form-field.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-0.8em) scale(0.75);
+}
+
+/* Botones compactos */
+.botones {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  grid-column: 1 / -1;
+  justify-content: flex-end;
+}
+
+.botones button[mat-raised-button] {
+  padding: 0 12px;
+  line-height: 32px;
+  font-size: 13px;
+}
+
+/* Buscador compacto */
+.search .mat-form-field {
+  width: 100%;
+  font-size: 13px;
+}
+
+.search .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+/* Tabla compacta */
+.mat-table {
+  font-size: 13px;
+}
+
+.mat-header-cell {
+  font-size: 13px;
+  padding: 8px 16px;
+}
+
+.mat-cell {
+  padding: 8px 16px;
+}
+
+.mat-row, .mat-header-row {
+  height: 40px;
+}
+
+/* Botones de acción en tabla */
+.mat-cell button[mat-raised-button] {
+  padding: 0 8px;
+  line-height: 28px;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+/* Paginador compacto */
+.mat-paginator {
+  font-size: 13px;
+}
+
+
+/* Estilo para la página de usuario */
+
+/* Estilo inspirado en dashboards profesionales */
+.usuario-page {
+  background-color: #b2a8a8;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.usuario-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #e6e3e3;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid #2a2a2a;
+}
+
+h1 {
+  color: #000000;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+}

@@ -45,3 +45,4 @@ export class ServForoService {
     return this.httpclient.delete<foro>(urlforo);
   }
 }
+//hola

@@ -1,0 +1,181 @@
+<div class="usuario-page">
+    
+    <div *ngIf="tipoUsuario==='ciudadano'" class="usuario-container">
+        <h1>Datos Personales</h1>
+       
+        <div *ngIf="tipoUsuario" class="user-data-container">
+            <mat-list>
+                <mat-list-item>
+                    <span matListItemTitle>Nombre</span>
+                    <span matListItemLine>{{ usuarioLogueado?.nombre }}</span>
+                </mat-list-item>
+                
+                <mat-list-item>
+                    <span matListItemTitle>Apellido</span>
+                    <span matListItemLine>{{ usuarioLogueado?.apellido }}</span>
+                </mat-list-item>
+                
+                <mat-list-item>
+                    <span matListItemTitle>Cédula</span>
+                    <span matListItemLine>{{ usuarioLogueado?.cedula }}</span>
+                </mat-list-item>
+                
+                <mat-list-item>
+                    <span matListItemTitle>Usuario</span>
+                    <span matListItemLine>{{ usuarioLogueado?.usuario }}</span>
+                </mat-list-item>
+                
+                <mat-list-item>
+                    <span matListItemTitle>Tipo de Usuario</span>
+                    <span matListItemLine>{{ usuarioLogueado?.tipo_usuario }}</span>
+                </mat-list-item>
+                
+                <mat-list-item>
+                    <span matListItemTitle>Género</span>
+                    <span matListItemLine>{{ usuarioLogueado?.genero }}</span>
+                </mat-list-item>
+                
+                <mat-list-item>
+                    <span matListItemTitle>Dirección</span>
+                    <span matListItemLine>{{ usuarioLogueado?.direccion }}</span>
+                </mat-list-item>
+            </mat-list>
+            
+            
+        </div>
+    </div>
+
+    <div *ngIf="tipoUsuario==='funcionario'" class="admin-container">
+        <h1>Crud de Usuario</h1>
+        
+        
+        <div class="form-container">
+            <form class="example-form" [formGroup]="form" (submit)="ngOnInit()">
+                <!-- Campos de los Usuarios -->
+                <mat-form-field class="formElement">
+                    <mat-label>Nombre:</mat-label>
+                    <input matInput type="text" placeholder="nombre" formControlName="nombre" />
+                </mat-form-field>
+            
+                <mat-form-field class="formElement">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput type="text" placeholder="apellido" formControlName="apellido" />
+                </mat-form-field>
+
+                <mat-form-field class="formElement">
+                    <mat-label>Cedula:</mat-label>
+                    <input matInput type="text" placeholder="cedula" formControlName="cedula" />
+                </mat-form-field>
+
+                <mat-form-field class="formElement">
+                    <mat-label>Usuario:</mat-label>
+                    <input matInput type="text" placeholder="usuario" formControlName="usuario" />
+                </mat-form-field>
+
+                <mat-form-field class="formElement">
+                    <mat-label>Tipo de Usuario:</mat-label>
+                    <mat-select formControlName="tipo_usuario">  
+                        <mat-option>Seleccione...</mat-option>
+                        <mat-option value="ciudadano">Ciudadano</mat-option>
+                        <mat-option value="funcionario">Funcionario</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="formElement">
+                    <mat-label>Genero:</mat-label>
+                    <mat-select formControlName="genero">  
+                        <mat-option>Seleccione...</mat-option>
+                        <mat-option value="masculino">Masculino</mat-option>
+                        <mat-option value="femenino">Femenino</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            
+                <mat-form-field class="formElement">
+                    <mat-label>Direccion:</mat-label>
+                    <input matInput type="text" placeholder="direccion" formControlName="direccion" />
+                </mat-form-field>
+
+                <mat-form-field class="formElement">
+                    <mat-label>Contrasenia:</mat-label>
+                    <input matInput type="text" placeholder="contrasenia" formControlName="contrasenia" />
+                </mat-form-field>
+
+                <!-- Contenedor de botones de acción -->
+                <div class="botones">
+                    <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">
+                        Guardar
+                    </button>
+                    <button mat-raised-button color="primary" type="reset" (click)="clearForm()">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Formulario de búsqueda -->
+        <form class="search">
+            <mat-form-field class="example-full-width">
+                <mat-label>Buscar:</mat-label>
+                <input matInput type="search" placeholder="Nombre o Apellido" #searchinput (keyup)="search(searchinput)" />
+            </mat-form-field>
+        </form>
+
+        <table mat-table [dataSource]="dataSource"> 
+            <!-- Columnas de la tabla -->
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+            </ng-container>
+            <ng-container matColumnDef="apellido">
+                <th mat-header-cell *matHeaderCellDef>Apellido</th>
+                <td mat-cell *matCellDef="let element">{{ element.apellido }}</td>
+            </ng-container>
+            <ng-container matColumnDef="cedula">
+                <th mat-header-cell *matHeaderCellDef>Cedula</th>
+                <td mat-cell *matCellDef="let element">{{ element.cedula }}</td>
+            </ng-container>
+            <ng-container matColumnDef="usuario">
+                <th mat-header-cell *matHeaderCellDef>Usuario</th>
+                <td mat-cell *matCellDef="let element">{{ element.usuario }}</td>
+            </ng-container>
+            <ng-container matColumnDef="tipo_usuario">
+                <th mat-header-cell *matHeaderCellDef>Tipo de Usuario</th>
+                <td mat-cell *matCellDef="let element">{{ element.tipo_usuario }}</td>
+            </ng-container>
+            <ng-container matColumnDef="genero">
+                <th mat-header-cell *matHeaderCellDef>Genero</th>
+                <td mat-cell *matCellDef="let element">{{ element.genero }}</td>
+            </ng-container>
+            <ng-container matColumnDef="direccion">
+                <th mat-header-cell *matHeaderCellDef>Direccion</th>
+                <td mat-cell *matCellDef="let element">{{ element.direccion }}</td>
+            </ng-container>
+            <ng-container matColumnDef="contrasenia">
+                <th mat-header-cell *matHeaderCellDef>Contrasenia</th>
+                <td mat-cell *matCellDef="let element">{{ element.contrasenia }}</td>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>Acciones</th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-raised-button color="accent" (click)="editar(element)">Editar</button>
+                    <button mat-raised-button color="warn" (click)="eliminar(element)">Eliminar</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Seleccione el número de filas">
+        </mat-paginator>
+        <!-- Modal de confirmación reutilizable -->
+        <app-vtn-modal
+            [isOpen]="modalEliminarAbierto"
+            [description]="'¿Está seguro de que desea eliminar el usuario ' + (usuarioAEliminar?.nombre || '') + '?'"
+            (onAceptar)="confirmarEliminar()"
+            (onCancelar)="cerrarModalEliminar()">
+        </app-vtn-modal>
+    </div>
+    
+</div>
+

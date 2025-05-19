@@ -1,0 +1,103 @@
+{
+  "usuario": [
+    {
+      "nombre": "Pedro",
+      "apellido": "Mendoza",
+      "cedula": "0976543218",
+      "usuario": "carlosm",
+      "tipo_usuario": "ciudadano",
+      "genero": "masculino",
+      "direccion": "Av. Central 789",
+      "contrasenia": "carMen1",
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "nombre": "María",
+      "apellido": "López",
+      "cedula": "0965432109",
+      "usuario": "maryl",
+      "tipo_usuario": "funcionario",
+      "genero": "femenino",
+      "direccion": "Calle 10 #20-30",
+      "contrasenia": "mlopez12"
+    },
+    {
+      "id": "5",
+      "nombre": "Juan",
+      "apellido": "Pérez",
+      "cedula": "0956789012",
+      "usuario": "juanpz",
+      "tipo_usuario": "ciudadano",
+      "genero": "masculino",
+      "direccion": "Av. Norte 567",
+      "contrasenia": "jperez2023"
+    },
+    {
+      "id": "6",
+      "nombre": "Lucía",
+      "apellido": "Fernández",
+      "cedula": "0945678901",
+      "usuario": "luciaf",
+      "tipo_usuario": "ciudadano",
+      "genero": "femenino",
+      "direccion": "Calle 5 #15-25",
+      "contrasenia": "lufer2023"
+    },
+    {
+      "id": "7",
+      "nombre": "Pedro",
+      "apellido": "González",
+      "cedula": "0934567890",
+      "usuario": "pedrog",
+      "tipo_usuario": "funcionario",
+      "genero": "masculino",
+      "direccion": "Av. Sur 321",
+      "contrasenia": "pgonzalez"
+    },
+    {
+      "id": "8",
+      "nombre": "Sofía",
+      "apellido": "Rodríguez",
+      "cedula": "0923456789",
+      "usuario": "sofiar",
+      "tipo_usuario": "ciudadano",
+      "genero": "femenino",
+      "direccion": "Calle 8 #12-34",
+      "contrasenia": "srodriguez"
+    },
+    {
+      "id": "9",
+      "nombre": "Diego",
+      "apellido": "Martínez",
+      "cedula": "0912345098",
+      "usuario": "diegom",
+      "tipo_usuario": "funcionario",
+      "genero": "masculino",
+      "direccion": "Av. Este 654",
+      "contrasenia": "dm2023"
+    },
+    {
+      "id": "10",
+      "nombre": "Valeria",
+      "apellido": "Vargas",
+      "cedula": "0998765432",
+      "usuario": "valeriav",
+      "tipo_usuario": "ciudadano",
+      "genero": "femenino",
+      "direccion": "Calle 3 #7-19",
+      "contrasenia": "vvargas12"
+    },
+    {
+      "id": "f37c",
+      "nombre": "maria ",
+      "apellido": "zambrano ",
+      "cedula": "0956451254",
+      "usuario": "mafer",
+      "tipo_usuario": "funcionario",
+      "genero": "femenino",
+      "direccion": "bastion",
+      "contrasenia": "maria1"
+    }
+  ]
+}
