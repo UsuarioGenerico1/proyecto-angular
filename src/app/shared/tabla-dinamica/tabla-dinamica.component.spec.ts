@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VtnModalComponent } from './vtn-modal.component';
+import { TablaDinamicaComponent } from './tabla-dinamica.component';
 
-describe('VtnModalComponent', () => {
-  let component: VtnModalComponent;
-  let fixture: ComponentFixture<VtnModalComponent>;
+describe('TablaDinamicaComponent', () => {
+  let component: TablaDinamicaComponent<any>;
+  let fixture: ComponentFixture<TablaDinamicaComponent<any>>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [VtnModalComponent]
+      imports: [TablaDinamicaComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(VtnModalComponent);
+    fixture = TestBed.createComponent(TablaDinamicaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,7 +20,4 @@ describe('VtnModalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-
 });
-

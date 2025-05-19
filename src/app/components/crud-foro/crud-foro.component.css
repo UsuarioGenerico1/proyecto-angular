@@ -1,0 +1,54 @@
+h1{
+    font-size: larger;
+}
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .post {
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+    }
+
+    .post:last-child {
+      border-bottom: none;
+    }
+
+    .post h3 {
+      margin: 0 0 0.5rem;
+      color: #333;
+    }
+
+    .post p {
+      margin: 0;
+      color: #666;
+    }
+
+    .new-post-btn {
+      display: inline-block;
+      margin: 1rem 0;
+      padding: 0.75rem 1.5rem;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    .new-post-btn:hover {
+      background-color: #357ab8;
+    }
+    .description{
+      width: 60%;
+    }
+    .titulo-input{
+      width: 60%;
+    }

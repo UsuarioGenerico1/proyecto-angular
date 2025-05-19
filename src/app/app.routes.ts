@@ -6,11 +6,16 @@ import { CrudReportesProblemasComponent } from './components/crud-reportes-probl
 import { CrudUsuarioComponent } from './components/crud-usuario/crud-usuario.component';
 
 export const routes: Routes = [
-    {path:'login',component:LoginComponent},
-    {path:'home',component:HomeComponent},
-    {path:'foro',component:CrudForoComponent},
-    {path: 'reportes', component: CrudReportesProblemasComponent, title: 'Reportes de Problemas'},
-    {path: 'usuario', component: CrudUsuarioComponent, title: 'Usuarios'},
-    {path:'',redirectTo:'/home',pathMatch:'full'}
-    
+
+  { path: 'home', title: 'Home', component: HomeComponent },
+  { path: 'login', title: 'Login', component: LoginComponent },
+  { path: 'foro', title: 'Foro', component: CrudForoComponent },
+  {
+    path: 'reportes',
+    title: 'Reportes de Problemas',
+    component: CrudReportesProblemasComponent,
+  },
+  {path: 'usuario', component: CrudUsuarioComponent, title: 'Usuarios'},
+  { path: '**', redirectTo: 'home' },
+
 ];

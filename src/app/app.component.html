@@ -1,22 +1,29 @@
+<!-- style="color: white; text-decoration: none" -->
+<!-- class="text-3xl font-bold flex justify-center items-center" -->
 <header>
-    <h1><a routerLink="/home" style="color: white; text-decoration: none;">Página de Reclamos </a></h1>
-   <a routerLink="/login" style="color: white; text-decoration: none;">Login</a>
-  </header>
+  <h1>
+    <!-- <img src="assets/img/logo.png" alt="Logo" class="w-20 h-20 mr-2"> -->
+    <a routerLink="/home" style="color: white; text-decoration: none"
+      >Página de Reclamos
+    </a>
+  </h1>
+  <a routerLink="/login" style="color: white; text-decoration: none">Login</a>
+</header>
 
-  <nav>
-    <ul>
-      <li><a routerLink="/foro">opcion1</a></li>
-      <li><a href="#">opcion2</a></li>
-      <li><a href="#">opcion3</a></li>
-      <li><a href="#">opcion4</a></li>
-      <li><a href="#">opcion5</a></li>
-      <li><a routerLink="/usuario">Usuario</a></li>
-    </ul>
-  </nav>
+<nav>
+  <ul>
+    <li><a routerLink="/home">Home</a></li>
+    <li><a routerLink="/foro">Foro</a></li>
+    <li><a routerLink="/reportes">Reportes</a></li>
+    <li><a href="#">opción3</a></li>
+    <li><a href="#">opción4</a></li>
+    <li><a href="#">opción5</a></li>
+    <li><a routerLink="/usuario">Usuario</a></li>
+  </ul>
+</nav>
 
-
-  <footer>
-      Proyecto Primer Parcial, 2025
-  </footer>
-
+<main class="flex-grow pb-16">
   <router-outlet></router-outlet>
+</main>
+<!-- <footer class="z-10 relative">Proyecto Primer Parcial, 2025</footer> -->
+<footer class="bg-[#333333] text-white text-center p-4 fixed w-full bottom-0 z-50" >Proyecto Primer Parcial, 2025</footer>
