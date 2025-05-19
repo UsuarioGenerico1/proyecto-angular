@@ -7,7 +7,7 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class ServUsuarioService {
-  private url = 'http://localhost:3000/usuario'; 
+  private url = 'http://localhost:3000/usuario';
 
   constructor(private httpcliente: HttpClient) {}
 

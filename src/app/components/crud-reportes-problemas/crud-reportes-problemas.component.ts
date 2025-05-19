@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -50,6 +50,9 @@ import { CommonModule } from '@angular/common';
     VtnSubirImagenComponent,
   ],
   templateUrl: './crud-reportes-problemas.component.html',
+  // styleUrls: ['./tailwind-local.css'],
+  // encapsulation: ViewEncapsulation.Emulated,
+
 })
 export class CrudReportesProblemasComponent implements OnInit, AfterViewInit {
   myForm!: FormGroup;
@@ -107,7 +110,7 @@ export class CrudReportesProblemasComponent implements OnInit, AfterViewInit {
       direccion: ['', [Validators.required]],
       //y que fecha no se pueda tocar
 
-      fecha: [{value: new Date(), disabled: true}],
+      fecha: [{ value: new Date(), disabled: true }],
       estado: [''],
       imagen: [''],
     });

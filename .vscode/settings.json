@@ -4,5 +4,9 @@
             "externalTemplate": true,
             "skipStyle": true
         }
-    }
+    },
+    "cSpell.words": [
+        "httpcliente",
+        "tailwindcss"
+    ]
 }

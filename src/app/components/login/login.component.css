@@ -7,8 +7,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: rgba(0, 0, 0, 0.5); 
-      z-index: 1000; 
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
     }
     .login-container {
       background-color: white;
@@ -21,13 +21,13 @@
       max-height: 80vh; /* Altura máxima del 80% del viewport */
       display: flex;
       flex-direction: column;
-          
+
      }
      .login-container form {
         overflow-y:scroll; /* Añade scroll vertical cuando sea necesario */
         padding-right: 8px;
         padding-top: 8px; /* Espacio para evitar que el scroll tape contenido */
-        
+
         }
 
     .login-container h2 {
@@ -44,7 +44,7 @@
       margin: 8px 0;
       border: 1px solid #ccc;
       border-radius: 5px;
-      
+
     }
 
     .login-container button {
@@ -66,7 +66,7 @@
       font-size: 0.875rem;
       padding: 0.5em 0;
       max-height: 0.25px;
-      
+
     }
     .login-container button:hover {
       background-color: #555;
